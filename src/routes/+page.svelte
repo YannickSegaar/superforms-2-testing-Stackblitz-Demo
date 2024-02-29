@@ -23,25 +23,35 @@
 
 <form method="POST" use:enhance>
   <label>
-    Name<br />
+    First Name<br />
     <input
-      name="name"
-      aria-invalid={$errors.name ? 'true' : undefined}
-      bind:value={$form.name}
+      name="firstName"
+      aria-invalid={$errors.firstName ? 'true' : undefined}
+      bind:value={$form.firstName}
     />
-    {#if $errors.name}<span class="invalid">{$errors.name}</span>{/if}
+    {#if $errors.firstName}<span class="invalid">{$errors.firstName}</span>{/if}
   </label>
 
-  <label>
-    Email<br />
-    <input
-      name="email"
-      type="email"
-      aria-invalid={$errors.email ? 'true' : undefined}
-      bind:value={$form.email}
-    />
-    {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
-  </label>
+    <label>
+      Last Name<br />
+      <input
+        name="lastName"
+        aria-invalid={$errors.lastName ? 'true' : undefined}
+        bind:value={$form.lastName}
+      />
+      {#if $errors.lastName}<span class="invalid">{$errors.lastName}</span>{/if}
+    </label>
+
+      <label>
+        Email<br />
+        <input
+          name="email"
+          type="email"
+          aria-invalid={$errors.email ? 'true' : undefined}
+          bind:value={$form.email}
+        />
+        {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
+      </label>
 
   <button>Submit</button>
 </form>
