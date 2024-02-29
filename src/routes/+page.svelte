@@ -14,7 +14,7 @@
 	import type { PageData } from "./$types";
 	import { allergies, schema, themes } from "./schema.js";
 	import SuperDebug from "sveltekit-superforms";
- 
+  import { roofSizeDrawing } from "./testDelete.svelte";
 	export let data: PageData;
  
 	const form = superForm(data.form, {
@@ -23,7 +23,18 @@
 	const { form: formData, enhance } = form;
 </script>
  
+<!-- Start of the form -->
 <form use:enhance class="mx-auto flex max-w-md flex-col" method="POST">
+
+  <Field {form} name="roofSize">
+		<Control let:attrs>
+			<Label>Dakoppervlak</Label>
+			<input {...attrs} type="number" bind:value={$formData.roofSize} />
+		</Control>
+		<Description>Minimaal 2500 m2</Description>
+		<FieldErrors />
+	</Field>
+
   <Field {form} name="dakType">
 		<Control let:attrs>
 			<Label>Daktype</Label>
@@ -36,6 +47,7 @@
 		<Description>Welk type dak heeft u?</Description>
 		<FieldErrors />
 	</Field>
+
   <Field {form} name="aansluitingType">
 		<Control let:attrs>
 			<Label>Type Aansluiting</Label>
@@ -48,6 +60,16 @@
 		<Description>Help us address you properly.</Description>
 		<FieldErrors />
 	</Field>
+
+  <Field {form} name="firstName">
+		<Control let:attrs>
+			<Label>Naamgegevens</Label>
+			<input {...attrs} type="firstName" bind:value={$formData.firstName} />
+		</Control>
+    <Description>Met wie hebben we het genoegen?</Description>
+		<FieldErrors />
+	</Field>
+
 	<Field {form} name="email">
 		<Control let:attrs>
 			<Label>Email</Label>
@@ -56,6 +78,7 @@
 		<Description>Company email is preferred</Description>
 		<FieldErrors />
 	</Field>
+
 	<Field {form} name="bio">
 		<Control let:attrs>
 			<Label>Bio</Label>
@@ -64,6 +87,7 @@
 		<Description>Tell us a bit about yourself.</Description>
 		<FieldErrors />
 	</Field>
+
 	<Field {form} name="language">
 		<Control let:attrs>
 			<Label>Language</Label>
@@ -76,6 +100,7 @@
 		<Description>Help us address you properly.</Description>
 		<FieldErrors />
 	</Field>
+
 	<Fieldset {form} name="theme">
 		<Legend>Select your theme</Legend>
 		{#each themes as theme}
