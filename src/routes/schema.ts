@@ -19,7 +19,7 @@ export const schema = z.object({
 	language: z.enum(languages).default("en"),
 	marketingEmails: z.boolean().default(true),
 	allergies: z.array(z.enum(allergies)),
-	roofSize: z.number().min(2500)
+	roofSize: z.number().min(2500, "Minimaal 2500 m2").optional(),
 	});
 
 // YRS: Hieronder staat de originele code van de schema.ts file. Deze code is vervangen door de code die hierboven staat. De originele code is niet verwijderd, maar gecommentarieerd. De reden hiervoor is dat de originele code niet werkt. De code die hieronder staat is de juiste code die wel werkt.
