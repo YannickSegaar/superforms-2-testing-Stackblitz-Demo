@@ -1,3 +1,4 @@
+
 <script lang="ts">
 	import { superForm } from "sveltekit-superforms";
 	import {
@@ -23,6 +24,30 @@
 </script>
  
 <form use:enhance class="mx-auto flex max-w-md flex-col" method="POST">
+  <Field {form} name="dakType">
+		<Control let:attrs>
+			<Label>Daktype</Label>
+			<select {...attrs} bind:value={$formData.dakType}>
+				<option value="plat">Plat</option>
+				<option value="schuin">Schuin</option>
+				<option value="kas">Kas</option>
+			</select>
+		</Control>
+		<Description>Welk type dak heeft u?</Description>
+		<FieldErrors />
+	</Field>
+  <Field {form} name="aansluitingType">
+		<Control let:attrs>
+			<Label>Type Aansluiting</Label>
+			<select {...attrs} bind:value={$formData.aansluitingType}>
+				<option value="klein">Klein</option>
+				<option value="middel">630 KVA</option>
+				<option value="groot">Groot</option>
+			</select>
+		</Control>
+		<Description>Help us address you properly.</Description>
+		<FieldErrors />
+	</Field>
 	<Field {form} name="email">
 		<Control let:attrs>
 			<Label>Email</Label>

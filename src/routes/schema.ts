@@ -1,10 +1,15 @@
+
 import { z } from "zod";
  
+export const dakType = ["plat", "schuin", "kas"] as const;
 export const themes = ["light", "dark"] as const;
 export const languages = ["en", "es", "fr"] as const;
 export const allergies = ["peanuts", "dairy", "gluten", "soy", "shellfish"] as const;
+//YRS: Hieronder probeer ik de daktype als select dropdown op te zetten...
+
  
 export const schema = z.object({
+	dakType: z.enum(dakType).default("plat"),
 	email: z.string().email("Please enter a valid email."),
 	bio: z.string().optional(),
 	theme: z.enum(themes).default("light"),
