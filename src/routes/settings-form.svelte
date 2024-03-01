@@ -1,8 +1,8 @@
 <!-- YRS: Deze onderstaande code en file is afkomstig van de shadcn-svelte docs, deze file wordt niet gebruikt in de 
 branch version_2 -->
 <script lang="ts">
-    import * as Form from "$lib/components/ui/form";
-    import { Input } from "$lib/components/ui/input";
+    import * as Form from "../../.svelte-kit/$lib/components/ui/form";
+    import { Input } from "../../.svelte-kit/$lib/components/ui/input";
     import { formSchema, type FormSchema } from "./schema";
     import {
       type SuperValidated,
@@ -31,3 +31,4 @@ branch version_2 -->
     </Form.Field>
     <Form.Button>Submit</Form.Button>
   </form>
+
