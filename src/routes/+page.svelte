@@ -1,3 +1,14 @@
+<!-- YRS: Hieronder staat de +page.svelte code afkomstig van shadcn-svelte docs -->
+
+<script lang="ts">
+	import type { PageData } from "./$types";
+	import SettingsForm from "./settings-form.svelte";
+	export let data: PageData;
+  </script>
+   
+   <SettingsForm data={data.form} />
+
+<!-- YRS: Hieronder staat de code van de +page.svelte file van branch version_2. Deze code is vervangen door de code die hierboven staat. 
 
 <script lang="ts">
 	import { superForm } from "sveltekit-superforms";
@@ -23,7 +34,7 @@
 
 </script>
  
-<!-- Start of the form -->
+Start of the form
 <form use:enhance class="mx-auto flex max-w-md flex-col" method="POST">
 
 	<Field {form} name="roofSize">
@@ -139,107 +150,4 @@
 	<button>Submit</button>
 </form>
 <SuperDebug data={$formData} />
-
-
-<!-- YRS: Hieronder staat de originele code van de +page.svelte file. Deze code is vervangen door de code die hierboven staat. De originele code is niet verwijderd, maar gecommentarieerd. De reden hiervoor is dat de originele code niet werkt. De code die hieronder staat is de juiste code die wel werkt.
-
-<script lang="ts">
-  import { page } from '$app/stores';
-  import { superForm } from 'sveltekit-superforms';
-  import SuperDebug from 'sveltekit-superforms'
-
-  export let data;
-
-  const { form, errors, message, constraints, enhance } = superForm(data.form);
-</script>
-
-<SuperDebug data={$form} />
-
-<h3>Superforms testing ground - Zod</h3>
-
-{#if $message}
-  <div class="status"
-    class:error={$page.status >= 400}
-    class:success={$page.status == 200}
-  >
-    {$message}
-  </div>
-{/if}
-
-<form method="POST" use:enhance>
-  <label>
-    First Name<br />
-    <input
-      name="firstName"
-      aria-invalid={$errors.firstName ? 'true' : undefined}
-      bind:value={$form.firstName}
-    />
-    {#if $errors.firstName}<span class="invalid">{$errors.firstName}</span>{/if}
-  </label>
-
-    <label>
-      Last Name<br />
-      <input
-        name="lastName"
-        aria-invalid={$errors.lastName ? 'true' : undefined}
-        bind:value={$form.lastName}
-      />
-      {#if $errors.lastName}<span class="invalid">{$errors.lastName}</span>{/if}
-    </label>
-
-      <label>
-        Email<br />
-        <input
-          name="email"
-          type="email"
-          aria-invalid={$errors.email ? 'true' : undefined}
-          bind:value={$form.email}
-        />
-        {#if $errors.email}<span class="invalid">{$errors.email}</span>{/if}
-      </label>
-
-  <button>Submit</button>
-</form>
-
-<hr>
-<p><a target="_blank" href="https://superforms.rocks/api">API Reference</a></p>
-
-<style>
-  .invalid {
-    color: red;
-  }
-
-  .status {
-    color: white;
-    padding: 4px;
-    padding-left: 8px;
-    border-radius: 2px;
-    font-weight: 500;
-  }
-
-  .status.success {
-    background-color: seagreen;
-  }
-
-  .status.error {
-    background-color: #ff2a02;
-  }
-
-  input {
-    background-color: #ddd;
-  }
-
-  a {
-    text-decoration: underline;
-  }
-
-  hr {
-    margin-top: 4rem;
-  }
-
-  form {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-  }
-</style> -->
-
+End of the form -->
