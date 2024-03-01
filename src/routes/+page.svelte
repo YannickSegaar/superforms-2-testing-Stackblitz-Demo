@@ -14,7 +14,6 @@
 	import type { PageData } from "./$types";
 	import { allergies, schema, themes } from "./schema.js";
 	import SuperDebug from "sveltekit-superforms";
-  import { roofSizeDrawing } from "./testDelete"; // Updated import path
 	export let data: PageData;
  
 	const form = superForm(data.form, {
