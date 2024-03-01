@@ -1,3 +1,3 @@
 
 
-export const roofSizeDrawing = 4959;
+export const roofSizeDrawing = 8000;
