@@ -21,46 +21,19 @@
 	});
 	const { form: formData, enhance } = form;
 
-  // // Ensure roofSize is reactively updated YRS: deze optie werkt, maar niet heel gebruiksvriendelijk
-  // $: $formData.roofSize = $formData.roofSize || roofSizeDrawing;
-
-  // YRS: nieuwe optie om dynamic roofSizeDrawing en manual override voor roofSize te implementeren:
-
-    // Flag to track if user is manually overriding the roofSize
-    let manualOverride = false;
-
-// Reactive statement to update roofSize only if there's no manual override
-$: if (!manualOverride) {
-  $formData.roofSize = roofSizeDrawing;
-}
-
-// Function to handle user input and set manual override
-function handleInput() {
-  manualOverride = true;
-}
-
 </script>
  
 <!-- Start of the form -->
 <form use:enhance class="mx-auto flex max-w-md flex-col" method="POST">
 
-  <!-- <Field {form} name="roofSize">
+	<Field {form} name="roofSize">
 		<Control let:attrs>
 			<Label>Dakoppervlak</Label>
-			<input {...attrs} type="number" bind:value={$formData.roofSize} />
+			<input {...attrs} type="roofSize" bind:value={$formData.roofSize} />
 		</Control>
-	  <Description>According to the drawing, the roof size is {$formData.roofSize || roofSizeDrawing} m2, changing this value is optional.</Description>
+    <Description>Wat is uw dakoppervlak?</Description>
 		<FieldErrors />
-	</Field> -->
-
-  <Field {form} name="roofSize">
-    <Control let:attrs>
-      <Label>Dakoppervlak</Label>
-      <input {...attrs} type="number" bind:value={$formData.roofSize} on:input={handleInput} />
-    </Control>
-    <Description>According to the drawing, the roof size is {roofSizeDrawing} m2, changing this value is optional.</Description>
-    <FieldErrors />
-  </Field>
+	</Field>
 
   <Field {form} name="dakType">
 		<Control let:attrs>
