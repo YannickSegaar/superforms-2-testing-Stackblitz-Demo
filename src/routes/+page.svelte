@@ -3,7 +3,9 @@
 <script lang="ts">
 	import type { PageData } from "./$types";
 	import SettingsForm from "./settings-form.svelte";
-	export let data: PageData;
+	import { SuperValidated, Infer, FormSchema } from 'sveltekit-superforms';
+    
+	export let data: PageData & { form: SuperValidated<Infer<FormSchema>, {username: string }> };
   </script>
    
    <SettingsForm data={data.form} />

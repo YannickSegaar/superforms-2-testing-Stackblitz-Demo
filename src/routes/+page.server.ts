@@ -1,29 +1,29 @@
 //YRS: Deze code hieronder is een code van de +page.server.ts code van shadcn-svelte docs. De vorige code staat nog in de version_2 branch en is hieronder geplaats.
 
-import type { PageServerLoad, Actions } from "./$types";
-import { fail } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 import { superValidate } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
-import { formSchema } from "./schema";
- 
+import { profileFormSchema } from "./profile-form.svelte";
+import { fail, type Actions } from "@sveltejs/kit";
+
 export const load: PageServerLoad = async () => {
-  return {
-    form: await superValidate(zod(formSchema)),
-  };
+	return {
+		form: await superValidate(zod(profileFormSchema)),
+	};
 };
- 
+
 export const actions: Actions = {
-  default: async (event) => {
-    const form = await superValidate(event, zod(formSchema));
-    if (!form.valid) {
-      return fail(400, {
-        form,
-      });
-    }
-    return {
-      form,
-    };
-  },
+	default: async (event) => {
+		const form = await superValidate(event, zod(profileFormSchema));
+		if (!form.valid) {
+			return fail(400, {
+				form,
+			});
+		}
+		return {
+			form,
+		};
+	},
 };
 
 //YRS: Deze code hieronder is een code van de +page.server.ts code van version_2 branch.
