@@ -1,14 +1,39 @@
-<!-- YRS: Hieronder staat de +page.svelte code afkomstig van shadcn-svelte docs -->
-
 <script lang="ts">
 	import type { PageData } from "./$types";
-	import SettingsForm from "./settings-form.svelte";
-	import { SuperValidated, Infer, FormSchema } from 'sveltekit-superforms';
+	import ProfileForm from "./profile-form.svelte";
+	import { Separator } from "@/registry/new-york/ui/separator";
+	export let data: PageData;
+</script>
+
+<div class="space-y-6">
+	<div>
+		<h3 class="text-lg font-medium">Profile</h3>
+		<p class="text-sm text-muted-foreground">This is how others will see you on the site.</p>
+	</div>
+	<Separator />
+	<ProfileForm data={data.form} />
+</div>
+
+<!-- YRS: Hieronder staat de +page.svelte code afkomstig van shadcn-svelte docs -->
+
+<!-- <script lang="ts">
+    import type { PageData } from "./$types";
+    import SettingsForm from "./settings-form.svelte";
+    import { SuperValidated, Infer, FormSchema } from 'sveltekit-superforms';
     
-	export let data: PageData & { form: SuperValidated<Infer<FormSchema>, {username: string }> };
-  </script>
+    export let data: PageData & { form: SuperValidated<Infer<FormSchema>, {username: string }> };
+
+    // Initialize data.form if it doesn't exist or doesn't match the expected type
+    if (!data.form || typeof data.form.username !== 'string') {
+        data.form = {
+            username: 'default_username', // Replace with actual username
+            // Add other properties as needed
+        };
+    }
+</script>
    
-   <SettingsForm data={data.form} />
+<SettingsForm {data.form} /> -->
+
 
 <!-- YRS: Hieronder staat de code van de +page.svelte file van branch version_2. Deze code is vervangen door de code die hierboven staat. 
 

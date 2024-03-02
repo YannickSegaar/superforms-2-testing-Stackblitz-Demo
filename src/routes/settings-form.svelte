@@ -1,5 +1,6 @@
 <!-- YRS: Deze onderstaande code en file is afkomstig van de shadcn-svelte docs, deze file wordt niet gebruikt in de 
 branch version_2 -->
+
 <script lang="ts">
     import * as Form from "../../.svelte-kit/$lib/components/ui/form";
     import { Input } from "../../.svelte-kit/$lib/components/ui/input";
@@ -11,7 +12,7 @@ branch version_2 -->
     } from "sveltekit-superforms";
     import { zodClient } from "sveltekit-superforms/adapters";
    
-    export let data: SuperValidated<Infer<FormSchema>>;
+    export let data: SuperValidated<Infer<FormSchema>, {username: string }>;
 
     const form = superForm(data, {
       validators: zodClient(formSchema),
